@@ -13,23 +13,26 @@
 <button type="button" onclick="flagsix()">Flag</button>
 </div>
 <script>
+	/*Autor: Daniel Norberto Hernández Santiago
+	Num Ctrl: 18390015
+	Semestre: 7mo Materia: Desarrollo Web 1*/
 let respJson = {};
 function loadXMLDoc() {//Esta función se ejecuta despues de dar click en el boton "Mostrar país"
-fetch("https://restcountries.com/v3.1/name/canada")
+fetch("https://restcountries.com/v3.1/name/canada")//Consuma una funcionalidad del web service de países: https://restcountries.com/ por medio de fetch
   .then(response => response.json())
   .then(function(data) {
     body = document.getElementsByTagName("body")[0];
-    Kuni = document.createElement('h1');
+    Kuni = document.createElement('h1');// Se crea el elemento h1 dentro del html, el cual contendra el nombre del país
     Kuni.innerHTML = data[0].name.common;
     body.appendChild(Kuni);
   });
 }
-function flagsix(){
+function flagsix(){//Función que es llamada después de hacer click en el boton flag la cual muestra una imagen en la página web
 fetch("https://flagcdn.com/ca.svg")
-    .then(response => response.blob())
+    .then(response => response.blob())//Regresa un nuevo objeto Blob creado cuyo contenido consiste en la concatenación de un arreglo de valores establecidos en el parámetro de la función.
     .then(function(blob) {
      
-      bandera= URL.createObjectURL(blob);
+      bandera= URL.createObjectURL(blob);//Creación de un objeto en el cual estará la url de la bandera  que estará dentro del blob
       bender= new Image();
       bender.src = bandera;
       document.getElementsByTagName("body")[0].appendChild(bender);
