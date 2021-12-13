@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<h2>Uso de peticiones  asíncronas adaptado a fetch</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Mostrar país</button>
+<button type="button" onclick="flagsix()">Flag</button>
+</div>
+<script>
+let respJson = {};
+function loadXMLDoc() {//Esta función se ejecuta despues de dar click en el boton "Mostrar país"
+fetch("https://restcountries.com/v3.1/name/canada")
+  .then(response => response.json())
+  .then(function(data) {
+    body = document.getElementsByTagName("body")[0];
+    Kuni = document.createElement('h1');
+    Kuni.innerHTML = data[0].name.common;
+    body.appendChild(Kuni);
+  });
+}
+function flagsix(){
+fetch("https://flagcdn.com/ca.svg")
+    .then(response => response.blob())
+    .then(function(blob) {
+     
+      bandera= URL.createObjectURL(blob);
+      bender= new Image();
+      bender.src = bandera;
+      document.getElementsByTagName("body")[0].appendChild(bender);
+    });
+  }
+</script>
+</body>
+</html>
