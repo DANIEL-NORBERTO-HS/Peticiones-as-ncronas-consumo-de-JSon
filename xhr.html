@@ -16,9 +16,8 @@
 	/*Autor: Daniel Norberto Hernández Santiago
 	Num Ctrl: 18390015
 	Semestre: 7mo Materia: Desarrollo Web 1*/
-let respJson = {};
 function loadXMLDoc() {//Esta función se ejecuta despues de dar click en el boton "Mostrar país"
-fetch("https://restcountries.com/v3.1/name/canada")//Consuma una funcionalidad del web service de países: https://restcountries.com/ por medio de fetch
+fetch("https://restcountries.com/v3.1/name/canada")//Consume una funcionalidad del web service de países: https://restcountries.com/ por medio de fetch
   .then(response => response.json())
   .then(function(data) {
     body = document.getElementsByTagName("body")[0];
@@ -28,7 +27,7 @@ fetch("https://restcountries.com/v3.1/name/canada")//Consuma una funcionalidad d
   });
 }
 function flagsix(){//Función que es llamada después de hacer click en el boton flag la cual muestra una imagen en la página web
-fetch("https://flagcdn.com/ca.svg")
+fetch("https://flagcdn.com/ca.svg")//Consume una funcionalidad del web service de banderas: https://www.banderas-mundo.es/ por medio de fetch
     .then(response => response.blob())//Regresa un nuevo objeto Blob creado cuyo contenido consiste en la concatenación de un arreglo de valores establecidos en el parámetro de la función.
     .then(function(blob) {
      
